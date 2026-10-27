@@ -1,0 +1,7 @@
+{
+  "name": "NetMaster Hub - সিসকো নেটওয়ার্কিং লার্নিং পোর্টাল",
+  "description": "সিসকো সিসিএনএ (CCNA) ও নেটওয়ার্কিং-এর সম্পূর্ণ স্টাডি পোর্টাল - আইপি এড্রেসিং, সাবনেটিং, রাউটিং, সুইচিং, ভি-ল্যান, এসিএল এবং ল্যাব ম্যানুয়াল সহজে শেখার পূর্ণাঙ্গ ডেটাবেস।",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+

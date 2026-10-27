@@ -1,0 +1,78 @@
+Router 1 (Area 0)
+Router>enable
+Router#configure terminal
+Router(config)#interface GigabitEthernet0/0
+Router(config-if)#ip address 192.168.1.1 255.255.255.0
+Router(config-if)#no shutdown
+Router(config-if)#exit
+Router(config)#interface GigabitEthernet0/1
+Router(config-if)#ip address 10.10.10.10 255.255.255.252
+Router(config-if)#no shutdown
+Router(config-if)#ex
+Router(config)#
+Router(config)#router ospf 15
+Router(config-router)#router-id 1.1.1.1
+Router(config-router)#net 192.168.1.0 0.0.0.255 area 0
+Router(config-router)#net 10.10.10.8 0.0.0.3 area 0
+Router(config-router)#ex
+Router(config)#do wr
+
+router 2 (AREA 1)
+
+Router>enable
+Router#configure terminal
+Router(config)#interface GigabitEthernet0/0
+Router(config-if)#ip address 10.10.10.6 255.255.255.252
+Router(config-if)#no shutdown
+Router(config-if)#exit
+Router(config)#interface GigabitEthernet0/1
+Router(config-if)#ip address 192.168.3.1 255.255.255.0
+Router(config-if)#no shutdown
+Router(config-if)#ex
+Router(config)#router ospf 15
+Router(config-router)#router-id 2.2.2.2
+Router(config-router)#net  192.168.3.0 0.0.0.255 area 1
+Router(config-router)#net 10.10.10.4 0.0.0.3 area 1
+Router(config-router)#do wr
+
+Router 3 (area 2)
+Router>enable
+Router#
+Router#configure terminal
+Router(config)#interface GigabitEthernet0/0
+Router(config-if)#ip address 10.10.10.2 255.255.255.252
+Router(config-if)#no shutdown
+Router(config-if)#exit
+Router(config)#interface GigabitEthernet0/1
+Router(config-if)#ip address 192.168.2.1 255.255.255.0
+Router(config-if)#no shutdown
+Router(config-if)#ex
+Router(config)#router ospf 15
+Router(config-router)#router-id 3.3.3.3
+Router(config-router)#net 192.168.2.0 0.0.0.255 area 2
+Router(config-router)#net 10.10.10.0 0.0.0.3 area 2
+Router(config-router)#do wr
+Building configuration...
+
+
+router 4 (Backbone area)
+Router>enable
+Router#
+Router#configure terminal
+Router(config)#interface GigabitEthernet0/0
+Router(config-if)#ip address 10.10.10.9 255.255.255.252
+Router(config-if)#exit
+Router(config)#interface GigabitEthernet0/1
+Router(config-if)#ip address 10.10.10.5 255.255.255.252
+Router(config-if)#no shutdown
+Router(config-if)#exit
+Router(config)#interface GigabitEthernet0/2
+Router(config-if)#ip address 10.10.10.1 255.255.255.252
+Router(config-if)#no shutdown
+Router(config-if)#ex
+Router(config)#router ospf 15
+Router(config-router)#router-id 4.4.4.4
+Router(config-router)#net 10.10.10.8 0.0.0.3 area 0
+Router(config-router)#net 10.10.10.4 0.0.0.3 area 1
+Router(config-router)#net 10.10.10.0 0.0.0.3 area 2
+Router(config-router)#do wr
